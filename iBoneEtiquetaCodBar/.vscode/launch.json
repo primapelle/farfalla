@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Server odoo",
+            "type": "python",
+            "request": "launch",
+            "program": "C:\\COKTEM\\ambiente_odoo\\odoo\\odoo-bin",
+            "console": "integratedTerminal",
+            "args": ["-c","C:\\COKTEM\\ambiente_odoo\\o14_com.conf","-u","iBoneEtiquetaCodBar"]
+        }
+    ]
+}
