@@ -13,10 +13,10 @@
     </record>
 
     <template id="report_lotecodebar">
-        <t t-call="web.html_container">
+        <t t-call="web.basic_layout">
             <style>
                 .codigoBarras {
-                    font-family:'Free 3 of 9'; 
+                    font-family:Code39AzaleaNarrow1; 
                     font-size: 35pt;
                 }
                 .acotacionCodigoBarras {
@@ -32,21 +32,20 @@
                             <t t-if="ctd_Paginas != 0">
                                 <p style="page-break-after:always;" />
                             </t>
+                            <div>
+                                <span t-field="o.name" class="acotacionCodigoBarras"/>
+                            </div>
                             <center>
                                 <div style="margin-bottom: 10px">
                                     <div>
-                                        <span class="codigoBarras">
-                                            *<span t-field="RgCodBar.defaultCodigoArticulo" />*
-                                        </span>
+                                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', RgCodBar.defaultCodigoArticulo, 300, 50)" style="width:250;height:50px"/>
                                     </div>
                                     <div><span t-field="RgCodBar.defaultCodigoArticulo" class="acotacionCodigoBarras"/></div>
                                 </div>
 
                                 <div style="margin-bottom: 10px">
                                     <div>
-                                        <span class="codigoBarras">
-                                            *<span t-field="RgCodBar.dimensiones" />*
-                                        </span>
+                                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', RgCodBar.dimensiones, 300, 50)" style="width:250;height:50px"/>
                                     </div>
                                     <div>
                                         <span t-field="RgCodBar.dimensiones" class="acotacionCodigoBarras"/>
@@ -55,8 +54,12 @@
                                     </div>
                                 </div>
 
-                                <div><span t-field="RgCodBar.codigoBarras" class="codigoBarras"/></div>
-                                <div><span t-field="RgCodBar.lote" class="acotacionCodigoBarras"/></div>
+                                <div>
+                                    <div>
+                                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', RgCodBar.lote, 300, 50)" style="width:250;height:50px"/>
+                                    </div>
+                                    <div><span t-field="RgCodBar.lote" class="acotacionCodigoBarras"/></div>
+                                </div>
                             </center>
                             <t t-set="ctd_Paginas" t-value="ctd_Paginas + 1" />
                         </div>
